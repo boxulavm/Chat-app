@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="./7.2 animate.css">
+    <title>Chat-app</title>
+</head>
+<body class="text-light">
+    <div class="container">
+
+    <!-- HEADER -->
+    <div class=" mb-2 text-center">
+        <h2 class="text-primary"><i class="far fa-comments"></i> Chat App</h2>
+        <hr>
+    </div>
+
+    <!--  -->
+    <div id="topBar">
+
+    </div>
+
+    <!-- MESSAGES -->
+    <div id="messages" class="my-3">
+        <ul class="list-group">
+
+        </ul>
+    </div>
+
+
+    <!-- FORM -->
+        <form id='message-form' class='my-3'>
+            <input name="message" type="text" class="form-control mb-2" placeholder="message" required autocomplete="off">
+            <button type="submit" class="btn btn-outline-primary">Send</button>
+            <!-- Location -->
+            <button id="send-location" class="btn btn-outline-warning">Send Location</button>
+        </form>
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <!-- Templates -->
+    <script id="message-template" type="text/html">
+        <li class="list-group-item my-1 bg-dark wow fadeInLeft" data-wow-duration="0.5s">
+            <span class="text-warning"><i class="far fa-user"></i> {{username}}: </span> {{message}} 
+            <br>
+            <small class='text-secondary'>{{createdAt}}</small>
+        </li>
+    </script>
+
+    <script id="location-template" type="text/html">
+        <li class="list-group-item my-1 bg-dark  wow fadeInLeft" data-wow-duration="0.5s">
+                <span class="text-warning"><i class="far fa-user"></i> {{username}}: </span><a href={{url}} target="_blank">My Location</a>
+            <br>
+            <small class='text-secondary'>{{createdAt}}</small>
+        </li>
+    </script>
+
+    <script id="topBar-template" type="text/html">
+            <h5>Room: <span class="text-success">{{room}}</span></h5>
+            <h6>Online Users :
+            {{#users}}
+                <span class="badge badge-pill badge-success">{{username}}</span>
+            {{/users}}
+            </h6>
+    </script>
+
+    <!-- Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+
+    <!-- Client side Socket.io  -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Custon JS -->
+    <script src="./js/chat.js"></script>
+
+    <!-- Bootstrap's Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- WOW -->
+    <script src="./js/7.1 wow.min.js"></script>
+
+
+
+    <script>
+    
+    // Init animation
+        $(document).ready(function() {
+        'use strict';
+        new WOW().init();
+        console.log('wow inited!')
+        });
+    
+
+
+    </script>
+
+</body>
+</html>
